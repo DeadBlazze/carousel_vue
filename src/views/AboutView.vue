@@ -3,7 +3,7 @@
         <div class="popup" v-if="$store.state.popupShow">
             <div class="popup__content">
                 <div class="popup__header" >
-                    <h2 class="h2">купить сайт в один клик</h2>
+                    <h2 class="h2" style="margin:0">купить сайт в один клик</h2>
                     <button class="btn" @click="popupToggle">Закрыть</button>
                 </div>
                 <div class="popup__body">
@@ -11,12 +11,11 @@
                         <Carousel :carousel_data="slideritems"/>
                     </div>
                     <div class="popup__right">
-                        <form action="">
-                            <input type="text" name="" id="">
-                            <input type="text" name="" id="">
-                            <input type="text" name="" id="">
-                            <input type="text" name="" id="">
-                            <button type="submit"></button>
+                        <form action="" class="form">
+                            <input type="tel" name="" id="" placeholder="Телефон">
+                            <input type="text" name="" id="" placeholder="Почта">
+                            <input type="text" name="" id="" placeholder="ФИО">
+                            <button type="submit" class="form-btn">Купить</button>
                         </form>
                     </div>
                 </div>
@@ -48,6 +47,9 @@
     }
 </script>
 <style scoped>
+    *{
+        color: black;
+    }
     .AboutView{
         background-color: white;
         padding: 0;
@@ -78,11 +80,22 @@
         height: 80%;
         display: flex;
         flex-direction: column;
+        padding: 20px;
     }
     .popup__header{
         padding: 0 0 0 20px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .popup__body{
+        display: flex;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
         gap: 20px;
     }
     .btn{

@@ -1,10 +1,16 @@
 <template>
-    <div class="wrapper">
-        <div class="carousel">
-            <CarouselItem v-for="item in carousel_data" :key="item.id" :item_data="item"/>
+    <div>
+        <div class="wrapper">
+            <div class="carousel" :style="{'margin-left': '-' + (100 * currentSlideIndex) + '%'}">
+                <CarouselItem v-for="item in carousel_data" :key="item.id" :item_data="item"/>
+            </div>
         </div>
-        <button>Вперед</button>
+        <div class="form-btns">
+            <button @click="prevSlide" style="margin-right: 10px;">Назад</button>
+            <button @click="nextSlide">Вперед</button>
+        </div>
     </div>
+    
 </template>
 <script>
 import CarouselItem from './CarouselItem.vue';
@@ -18,16 +24,38 @@ export default {
             type: Array,
             default: () => {}
         }
+    },
+    data(){
+        return{
+            currentSlideIndex: 0
+        }
+    },
+    methods:{
+        prevSlide(){
+            if(this.currentSlideIndex>0){
+                this.currentSlideIndex--
+            }
+        },
+        nextSlide(){
+            this.currentSlideIndex++
+        }
     }
 }
 </script>
 <style>
     .wrapper{
         width: 90%;
-        overflow: hidden;
+        height: 60vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-bottom: 10px;
     }
     .carousel{
         display: flex;
-        overflow-y:scroll;
+    }
+    .form-btns{
+        display: flex;
+        justify-content: center;
+        width:90%;
     }
 </style>
