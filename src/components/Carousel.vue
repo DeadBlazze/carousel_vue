@@ -57,14 +57,10 @@ export default {
 </script>
 <style>
     .wrapper{
-        width: 90%;
         height: 60vh;
-        overflow-x: hidden;
+        overflow-x:hidden;      
         overflow-y: scroll;
         margin-bottom: 10px;
-    }
-    .wrapper::-webkit-scrollbar-thumb{
-        background: #4d7fff;
     }
     .carousel{
         display: flex;

@@ -26,7 +26,7 @@
     </div>
 </template>
 <script >
-    import Carousel from '../components/Carousel.vue'
+    import Carousel from '../components/Carousel.vue';
     export default {
         components: {
             Carousel
@@ -93,6 +93,7 @@
     }
     .popup__body{
         display: flex;
+        gap: 20px;
     }
     form{
         display: flex;
@@ -103,7 +104,7 @@
         height: fit-content;
     }
     .popup__left{
-        width: 60%;
+        width: 65%;
         display: flex;
         justify-content: center;
     }
