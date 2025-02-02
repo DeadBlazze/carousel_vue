@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="wrapper">
-            <div class="carousel" :style="{'margin-left': '-' + (100 * currentSlideIndex) + '%'}">
+            <div class="carousel" :style="{'transform': 'translateX(-' + (100 * currentSlideIndex) + '%)'}">
                 <CarouselItem v-for="item in carousel_data" :key="item.id" :item_data="item"/>
             </div>
         </div>
@@ -32,12 +32,25 @@ export default {
     },
     methods:{
         prevSlide(){
-            if(this.currentSlideIndex>0){
+            if(this.currentSlideIndex > 0){
                 this.currentSlideIndex--
             }
+            else{
+                this.currentSlideIndex = this.carouselLength-1;
+            }
         },
-        nextSlide(){
-            this.currentSlideIndex++
+        nextSlide() {
+            if(this.currentSlideIndex < this.carouselLength-1) {
+                this.currentSlideIndex++;
+            }
+            else{
+                this.currentSlideIndex = 0;
+            }
+        }
+    },
+    computed: {
+        carouselLength() {
+            return this.carousel_data.length;
         }
     }
 }
@@ -50,8 +63,12 @@ export default {
         overflow-y: scroll;
         margin-bottom: 10px;
     }
+    .wrapper::-webkit-scrollbar-thumb{
+        background: #4d7fff;
+    }
     .carousel{
         display: flex;
+        transition: all ease .7s;
     }
     .form-btns{
         display: flex;

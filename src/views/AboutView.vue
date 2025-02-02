@@ -19,9 +19,10 @@
                         </form>
                     </div>
                 </div>
-                
             </div>
         </div>
+        <h2>О нас:</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis a, odit, esse deleniti officiis iure non neque laboriosam omnis aspernatur, dignissimos similique maiores quas error nostrum. Praesentium reprehenderit voluptate possimus?</p>
     </div>
 </template>
 <script >
